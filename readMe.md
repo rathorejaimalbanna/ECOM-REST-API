@@ -3,12 +3,18 @@ This project is an implementation of a RESTful API for an e-commerce application
 
 # Features
 User Management: Sign up and sign in functionality with basic authentication.
+
 Product Management: CRUD operations for products, including searching for products by name.
+
 Shopping Cart: Ability to view and add products to the shopping cart.
+
 Technologies Used
 Node.js: The server-side runtime environment.
+
 Express.js: A web application framework for Node.js used for building the API endpoints.
+
 MySQL: A relational database management system used for storing user and product data.
+
 jsonwebtoken: A package for generating and verifying JSON Web Tokens (JWT) for user authentication.
 
 # Installation
