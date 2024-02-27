@@ -1,21 +1,25 @@
-import express from "express";
-import db from "../mysql.js";
-import basicAuth from "../middleware/auth.js";
+import express from "express"; // Importing express framework
+import db from "../mysql.js"; // Importing database module
+import basicAuth from "../middleware/auth.js"; // Importing basic authentication middleware
 
-export const productRouter = express.Router();
+export const productRouter = express.Router(); // Creating a router instance for product routes
 
-
-
-productRouter.get('/',async (req,res)=>{
+// Route to fetch all products
+productRouter.get('/', async (req, res) => {
+    // Querying the database to fetch all products
     const data = await db.query("SELECT * from Products");
-    res.send(data[0])
+    
+    // Sending response with product data
+    res.send(data[0]);
 });
 
-
-productRouter.get('/search',async (req,res)=>{
-    const name =  req.query.name;
-    const product = await db.query(`SELECT * FROM products WHERE name = ${db.escape(name)}`)
-    res.send(product[0])
-})
-
-
+// Route to search for a product by name
+productRouter.get('/search', async (req, res) => {
+    const name = req.query.name; // Extracting product name from query parameter
+    
+    // Querying the database to search for the product by name
+    const product = await db.query(`SELECT * FROM products WHERE name = ${db.escape(name)}`);
+    
+    // Sending response with the searched product
+    res.send(product[0]);
+});

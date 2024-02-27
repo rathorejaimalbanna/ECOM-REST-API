@@ -1,16 +1,16 @@
-import express from "express"
-import userRouter from "./routers/userRouter.js";
-import cartRouter from "./routers/cartRouter.js";
-import { productRouter } from "./routers/productRouter.js";
+// Importing necessary modules
+import express from "express";
+import userRouter from "./routers/userRouter.js"; // Importing user router
+import cartRouter from "./routers/cartRouter.js"; // Importing cart router
+import { productRouter } from "./routers/productRouter.js"; // Importing product router
 
-const app = express()
-app.use(express.json())
-app.use('/products',productRouter)
-app.use('/users',userRouter)
-app.use('/cart',cartRouter)
+const app = express(); // Creating Express application
+app.use(express.json()); // Middleware to parse JSON bodies
 
+// Routing configuration
+app.use('/products', productRouter); // Mounting product router on '/products' route
+app.use('/users', userRouter); // Mounting user router on '/users' route
+app.use('/cart', cartRouter); // Mounting cart router on '/cart' route
 
-
-
-app.listen(3200,()=>
-console.log("server is live"))
+// Starting the server
+app.listen(3200, () => console.log("Server is live")); // Server listens on port 3200 and logs a message when it starts

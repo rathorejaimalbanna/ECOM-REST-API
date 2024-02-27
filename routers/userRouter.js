@@ -1,21 +1,27 @@
+import basicAuth from '../middleware/auth.js'; // Importing basic authentication middleware
+import express from 'express'; // Importing express framework
+import db from '../mysql.js'; // Importing database module
 
-import basicAuth from '../middleware/auth.js';
-import express from 'express';
-import db from '../mysql.js';
+const userRouter = express.Router(); // Creating a router instance for user routes
 
-const userRouter = express.Router();
-async function addUser(req,res)
-{
-    var email = req.body.username;
-    var name = req.body.name;
-    var pass = req.body.pass;
-    console.log(pass)
+// Function to add a new user
+async function addUser(req, res) {
+    var email = req.body.username; // Extracting email from request body
+    var name = req.body.name; // Extracting name from request body
+    var pass = req.body.pass; // Extracting password from request body
+    console.log(pass);
+    
+    // Inserting user data into the database
     await db.query(`INSERT INTO users VALUES(${db.escape(name)},${db.escape(email)},${db.escape(pass)})`);
-    res.status(201).send("User added successfully")
+    
+    // Sending success response
+    res.status(201).send("User added successfully");
 }
 
-userRouter.post('/signup',addUser);
-userRouter.post('/signin',basicAuth);
+// Route to handle user signup
+userRouter.post('/signup', addUser);
 
+// Route to handle user signin with basic authentication
+userRouter.post('/signin', basicAuth);
 
-export default userRouter;
+export default userRouter; // Exporting the user router
