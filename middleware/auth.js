@@ -29,8 +29,9 @@ const basicAuth = async (req,res,next)=>{
         },
         'ABClkajf454jh5jjjkj43jklda',
         {expiresIn:'1h'} );
+        // req.session.userEmail = email;
         return res.status(200).send(token);
-        next()}
+    }
     else{
        return res.status(401).send('Invalid Credentials')
     }
