@@ -36,6 +36,7 @@ npm start.
 
 # API Endpoints
 POST /users/signup: Create a new user account.
+
 POST /users/signin: Sign in with an existing user account.
 GET /products: Retrieve all products.
 GET /products/search/name: Search for products by name.
