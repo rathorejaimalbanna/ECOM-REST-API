@@ -21,8 +21,22 @@ username varchar(50),
 itemName varchar(50),
 itemPrice int)
 
-insert into cart values(
-"jaimal@banna","jacket",3444)
+INSERT INTO products (id, name, category, price) VALUES
+(2, 'sneakers', 'footwear', 80),
+(3, 't-shirt', 'mens wear', 20),
+(4, 'dress', 'womens wear', 150),
+(5, 'jeans', 'mens wear', 50);
 
-INSET INTO cart VALUES(
-"rathore@jai",'jacket',345)
+INSERT INTO products (id, name, category, price) VALUES
+(6, 'running shoes', 'footwear', 120),
+(7, 'hoodie', 'mens wear', 60),
+(8, 'skirt', 'womens wear', 40),
+(9, 'sunglasses', 'accessories', 25),
+(10, 'watch', 'accessories', 200);
+
+INSERT INTO products (id, name, category, price) VALUES
+(11, 'backpack', 'accessories', 50),
+(12, 'formal shirt', 'mens wear', 35),
+(13, 'sandals', 'footwear', 25),
+(14, 'leggings', 'womens wear', 30),
+(15, 'belt', 'accessories', 15);

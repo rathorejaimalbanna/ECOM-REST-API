@@ -14,11 +14,22 @@ productRouter.get('/', async (req, res) => {
 });
 
 // Route to search for a product by name
-productRouter.get('/search', async (req, res) => {
+productRouter.get('/search/name', async (req, res) => {
     const name = req.query.name; // Extracting product name from query parameter
     
     // Querying the database to search for the product by name
     const product = await db.query(`SELECT * FROM products WHERE name = ${db.escape(name)}`);
+    
+    // Sending response with the searched product
+    res.send(product[0]);
+});
+
+// Route to search for a product by category
+productRouter.get('/search/category', async (req, res) => {
+    const category = req.query.category; // Extracting product name from query parameter
+    
+    // Querying the database to search for the product by name
+    const product = await db.query(`SELECT * FROM products WHERE category = ${db.escape(category)}`);
     
     // Sending response with the searched product
     res.send(product[0]);
