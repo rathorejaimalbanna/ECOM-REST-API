@@ -38,10 +38,15 @@ npm start.
 POST /users/signup: Create a new user account.
 
 POST /users/signin: Sign in with an existing user account.
+
 GET /products: Retrieve all products.
+
 GET /products/search/name: Search for products by name.
+
 GET /products/search/category: Search for products by category.
+
 GET /cart/allProducts: Retrieve all products in the shopping cart. Don't forget to provide jwt.
+
 POST /cart/addProduct: Add a product to the shopping cart. Don't forget to provide jwt.
 
 
